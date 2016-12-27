@@ -4,19 +4,19 @@ org.springframework.cloud.contract.spec.Contract.make {
     request {
         method 'POST'
         url '/add'
-        body([name : 'some-name'])
+        body(name : 'some-name')
         headers {
-            contentType('application/json')
+            contentType(applicationJson())
         }
     }
     response {
         status 201
         body(
-                name : 'some-name',
+                name : $(client('some-name'), server(execute('name($it)'))),
                 id : $(regex(uuid()))
         )
         headers {
-            contentType('application/json')
+            contentType(applicationJson())
         }
     }
 }

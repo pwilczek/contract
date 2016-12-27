@@ -10,4 +10,9 @@ public abstract class ContextBase {
 		RestAssuredMockMvc.standaloneSetup(new Controller(new Service()));
 	}
 
+	public void name(String name) {
+		assert "valid-name".equals(name) : "The name is wrong!";
+
+	}
+
 }
