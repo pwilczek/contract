@@ -11,7 +11,7 @@ public abstract class ContextBase {
 	}
 
 	public void name(String name) {
-		assert "valid-name".equals(name) : "The name is wrong!";
+		assert "some-name".equals(name) : "The name is wrong!";
 
 	}
 

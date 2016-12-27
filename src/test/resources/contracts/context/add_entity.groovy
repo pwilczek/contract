@@ -17,6 +17,7 @@ org.springframework.cloud.contract.spec.Contract.make {
         )
         headers {
             contentType(applicationJson())
+            header('Location', regex("http://localhost/get/${uuid()}"))
         }
     }
 }
