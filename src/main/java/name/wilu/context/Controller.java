@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
-import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequestUri;
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentServletMapping;
 
 @RestController
 public class Controller {
@@ -23,7 +23,7 @@ public class Controller {
     public ResponseEntity<?> add(@RequestBody Entry entry) {
         Entry added = service.add(entry);
         return ResponseEntity
-                .created(fromCurrentRequestUri().path("/get/{id}").buildAndExpand(added.getId()).toUri())
+                .created(fromCurrentServletMapping().path("/get/{id}").buildAndExpand(added.getId()).toUri())
                 .body(added);
     }
 
