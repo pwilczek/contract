@@ -9,4 +9,8 @@ public class Service {
         entry.setId(UUID.randomUUID());
         return entry;
     }
+
+    public Entry get(UUID uuid) {
+        throw new UnsupportedOperationException("Sorry, not implemented yet...");
+    }
 }

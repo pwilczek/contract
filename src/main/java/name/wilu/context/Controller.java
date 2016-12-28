@@ -1,10 +1,7 @@
 package name.wilu.context;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -27,9 +24,9 @@ public class Controller {
                 .body(added);
     }
 
-    @GetMapping(value = "dummy", produces = "application/json")
-    public ResponseEntity<?> get() {
-        return ResponseEntity.ok(new Entry().setName("dummy").setId(UUID.randomUUID()));
+    @GetMapping(value = "get/{id}", produces = "application/json")
+    public ResponseEntity<?> get(@PathVariable("id") String id) {
+        return ResponseEntity.ok(service.get(UUID.fromString(id)));
     }
 
 }
